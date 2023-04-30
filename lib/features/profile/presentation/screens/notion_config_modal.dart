@@ -1,4 +1,3 @@
-import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -39,7 +38,7 @@ class NotionConfigModal extends HookConsumerWidget {
               // [3] 메세지 알림
               showFlashSnackBar(
                 context,
-                snack: FlashBar(content: const Text('설정이 완료되었습니다.')),
+                message: '설정이 완료되었습니다.',
               );
             }
           },

@@ -9,18 +9,18 @@ environment:
 dependencies:
   cron: ^0.5.0
   equatable: ^2.0.5
-  flash: ^2.0.5
+  flash: ^3.0.3
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
   flutter_remix: ^0.0.3
-  flutter_slidable: ^2.0.0
+  flutter_slidable: ^3.0.0
   get_it: ^7.2.0
   grouped_list: ^5.1.2
   hooks_riverpod: ^2.0.2
   http: ^0.13.4
   image_picker: ^0.8.6
-  intl: ^0.17.0
+  intl: ^0.18.1
   shared_preferences: ^2.0.15
 
 dev_dependencies:

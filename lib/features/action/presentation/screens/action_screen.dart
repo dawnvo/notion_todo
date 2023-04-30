@@ -1,4 +1,3 @@
-import 'package:flash/flash.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -33,10 +32,11 @@ class ActionScreen extends HookConsumerWidget {
       // 할 일 초기화
       await ref.read(actionControllerProvider.notifier).initializeActions();
 
+      // ignore: use_build_context_synchronously
       if (!context.mounted) return;
       showFlashSnackBar(
         context,
-        snack: FlashBar(content: const Text('노션에 추가되었습니다.')),
+        message: '노션에 추가되었습니다.',
       );
     } catch (error) {
       // 요청에 실패하면 오류 메세지 표시
@@ -44,7 +44,7 @@ class ActionScreen extends HookConsumerWidget {
       final status = int.parse(match![0].toString());
       showFlashSnackBar(
         context,
-        snack: FlashBar(content: Text(ExceptionMessage.from(status))),
+        message: ExceptionMessage.from(status),
       );
     }
   }

@@ -45,13 +45,21 @@ class NotionController extends StateNotifier<NotionState> {
 
     // [2] 노션 페이지 콘텐츠 구성
     final contents = NotionChildren()
-        .addAll(actions.map((_) => TodoBlock(checked: _.done, text: _.name)).toList());
+        .addAll(actionBlocks(ActionType.routine, actions))
+        .add(const DividerBlock())
+        .addAll(actionBlocks(ActionType.task, actions));
 
     // [3] 노션 페이지 생성
     await client.createPage(property, contents).then((res) {
       if (res.code != null) throw Exception(res.status);
     });
   }
+
+  /// 액션 타입에 따라 항목 필터
+  List<TodoBlock> actionBlocks(String type, List<Action> items) => items
+      .where((_) => _.type == type)
+      .map((_) => TodoBlock(checked: _.done, text: _.name))
+      .toList();
 }
 
 final notionControllerProvider = StateNotifierProvider<NotionController, NotionState>((ref) {
