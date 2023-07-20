@@ -5,17 +5,15 @@ import 'package:notion_todo/constants/colors.dart';
 export 'package:flutter_remix/flutter_remix.dart';
 
 class TodoIcon extends StatelessWidget {
-  final IconData? icon;
-
-  final double? size;
-
-  final Color? color;
-
   const TodoIcon(
     this.icon, {
     this.size = IconSizes.medium,
     this.color = FontColors.secondary,
   });
+
+  final IconData? icon;
+  final double? size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {

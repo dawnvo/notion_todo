@@ -3,24 +3,6 @@ import 'package:notion_todo/constants/sizes.dart';
 import 'package:notion_todo/constants/colors.dart';
 
 class TodoText extends StatelessWidget {
-  final String? text;
-
-  final double? size;
-
-  final Color? color;
-
-  final bool? strong;
-
-  final bool? italic;
-
-  final double? height;
-
-  final TextAlign? align;
-
-  final int? maxLines;
-
-  final TextStyle? style;
-
   const TodoText(
     this.text, {
     this.size = FontSizes.body,
@@ -32,6 +14,16 @@ class TodoText extends StatelessWidget {
     this.maxLines,
     this.style,
   });
+
+  final String? text;
+  final double? size;
+  final Color? color;
+  final bool? strong;
+  final bool? italic;
+  final double? height;
+  final TextAlign? align;
+  final int? maxLines;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {

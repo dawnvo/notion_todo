@@ -32,7 +32,7 @@ class ActionController extends StateNotifier<ActionState> {
 
   /// 할 일 완료
   void doneAction(Action action) {
-    actionUsecase.updateAction(action);
+    actionUsecase.changeStatus(action);
     state = actionUsecase.getActions();
   }
 
@@ -49,6 +49,7 @@ class ActionController extends StateNotifier<ActionState> {
   }
 }
 
-final actionControllerProvider = StateNotifierProvider<ActionController, ActionState>((ref) {
+final actionControllerProvider =
+    StateNotifierProvider<ActionController, ActionState>((ref) {
   return ActionController(ref.watch(actionServiceProvider));
 });

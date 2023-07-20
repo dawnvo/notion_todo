@@ -4,14 +4,6 @@ import 'package:notion_todo/components/icon.dart';
 import 'package:notion_todo/components/text.dart';
 
 class ActionListItem extends StatelessWidget {
-  final bool done;
-
-  final String title;
-
-  final VoidCallback? onPressed;
-
-  final VoidCallback? onLongPressed;
-
   const ActionListItem({
     required this.done,
     required this.title,
@@ -19,20 +11,32 @@ class ActionListItem extends StatelessWidget {
     this.onLongPressed,
   });
 
+  final bool done;
+  final String title;
+  final VoidCallback? onPressed;
+  final VoidCallback? onLongPressed;
+
   @override
   Widget build(BuildContext context) {
+    final icon = done //
+        ? FlutterRemix.checkbox_fill
+        : FlutterRemix.checkbox_blank_line;
+    final color = done //
+        ? FontColors.hint
+        : FontColors.primary;
+
     return ListTile(
       dense: true,
       minLeadingWidth: 0,
       horizontalTitleGap: 8,
       contentPadding: const EdgeInsets.only(left: 12),
       leading: TodoIcon(
-        done ? FlutterRemix.checkbox_fill : FlutterRemix.checkbox_blank_line,
+        icon,
         color: FontColors.hint,
       ),
       title: TodoText(
         title,
-        color: done ? FontColors.hint : FontColors.primary,
+        color: color,
       ),
       onTap: onPressed,
       onLongPress: onLongPressed,

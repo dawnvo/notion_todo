@@ -3,20 +3,17 @@ import 'package:notion_todo/constants/colors.dart';
 import 'package:notion_todo/constants/sizes.dart';
 
 class TitleTextField extends StatelessWidget {
-  final TextEditingController? controller;
-
-  final String? hintText;
-
-  final bool? autofocus;
-
-  final void Function(String)? onChange;
-
   const TitleTextField({
     this.controller,
     this.hintText,
     this.autofocus,
     this.onChange,
   });
+
+  final TextEditingController? controller;
+  final String? hintText;
+  final bool? autofocus;
+  final void Function(String)? onChange;
 
   @override
   Widget build(BuildContext context) {

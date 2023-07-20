@@ -3,17 +3,15 @@ import 'package:notion_todo/constants/colors.dart';
 import 'package:notion_todo/constants/sizes.dart';
 
 class TodoTextField extends StatelessWidget {
-  final TextEditingController controller;
-
-  final String? labelText;
-
-  final String? Function(String?)? validator;
-
   const TodoTextField({
     required this.controller,
     this.labelText,
     this.validator,
   });
+
+  final TextEditingController controller;
+  final String? labelText;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {

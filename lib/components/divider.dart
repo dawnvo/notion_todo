@@ -4,9 +4,9 @@ import 'package:notion_todo/constants/sizes.dart';
 import 'package:notion_todo/components/text.dart';
 
 class TodoDivider extends StatelessWidget {
-  final String label;
-
   const TodoDivider({required this.label});
+
+  final String label;
 
   @override
   Widget build(BuildContext context) {

@@ -4,17 +4,15 @@ import 'package:notion_todo/constants/sizes.dart';
 import 'package:notion_todo/components/text.dart';
 
 class ModalSheet extends StatelessWidget {
-  final String title;
-
-  final Widget child;
-
-  final Widget? submit;
-
   const ModalSheet({
     required this.title,
     required this.child,
     this.submit,
   });
+
+  final String title;
+  final Widget child;
+  final Widget? submit;
 
   @override
   Widget build(BuildContext context) {

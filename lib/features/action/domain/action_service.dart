@@ -20,7 +20,7 @@ abstract class ActionUsecase {
   void removeAction(Action action);
 
   // 할 일 상태 변경
-  void updateAction(Action action);
+  void changeStatus(Action action);
 
   // 할 일 초기화
   void initializeActions();
@@ -54,7 +54,7 @@ class ActionService implements ActionUsecase {
   }
 
   @override
-  void updateAction(Action action) {
+  void changeStatus(Action action) {
     final actions = getActions();
     for (var a in actions) {
       if (a.name == action.name) a.changeStatus();

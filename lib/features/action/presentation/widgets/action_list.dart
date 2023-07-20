@@ -6,19 +6,17 @@ import 'package:notion_todo/features/action/domain/action_entity.dart';
 import 'package:notion_todo/features/action/presentation/widgets/action_list_item.dart';
 
 class ActionList extends StatelessWidget {
-  final List<Action> actions;
-
-  final void Function(Action)? onCompleted;
-
-  final void Function(Action)? onRemoved;
-
   const ActionList({
     required this.actions,
     this.onCompleted,
     this.onRemoved,
   });
 
-  handleAction(Action action, dynamic callback) {
+  final List<Action> actions;
+  final void Function(Action)? onCompleted;
+  final void Function(Action)? onRemoved;
+
+  void handleAction(Action action, dynamic callback) {
     if (callback != null) {
       callback(action);
     }
@@ -52,7 +50,8 @@ class ActionList extends StatelessWidget {
                 SlidableAction(
                   icon: Icons.delete,
                   backgroundColor: Colors.red,
-                  onPressed: (BuildContext context) => handleAction(action, onRemoved),
+                  onPressed: (BuildContext context) =>
+                      handleAction(action, onRemoved),
                 ),
               ],
             ),

@@ -9,17 +9,15 @@ import 'package:notion_todo/utils/get_today.dart';
 import 'package:notion_todo/components/text.dart';
 
 class ActionHeader extends StatelessWidget {
-  final String? title;
-
-  final String? background;
-
-  final List<Widget>? actions;
-
   const ActionHeader({
     this.title,
     this.background,
     this.actions,
   });
+
+  final String? title;
+  final String? background;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +50,8 @@ class ActionHeader extends StatelessWidget {
                   fit: BoxFit.cover,
                   image: background != null
                       ? FileImage(File(background!))
-                      : const AssetImage(kDefaultBackgroundImage) as ImageProvider,
+                      : const AssetImage(kDefaultBackgroundImage)
+                          as ImageProvider,
                 ),
               ),
             ),

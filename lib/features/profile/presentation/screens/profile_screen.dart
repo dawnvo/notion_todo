@@ -45,7 +45,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       isScrollControlled: true,
       builder: (_) => Padding(
         // Keybord padding
-        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: modal,
       ),
     );
@@ -67,40 +68,51 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         extendBodyBehindAppBar: true,
         appBar: AppBar(title: const Text("설정"), elevation: 0),
         body: Column(children: [
-          // 배경 사진 선택
           BackgroundPicker(
+            onChanged: (image) => ref
+                .read(profileControllerProvider.notifier)
+                .changeBackground(image!.path),
             image: profile.image,
-            onChanged: (image) =>
-                ref.read(profileControllerProvider.notifier).changeBackground(image!.path),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              // 제목 입력
-              TitleTextField(
-                controller: titleController,
-                hintText: kDefaultTitle,
-                onChange: (title) => debounceQuery(title, (query) {
-                  ref.read(profileControllerProvider.notifier).editTitle(query);
-                }),
-              ),
-              const SizedBox(height: 24),
-
-              // Notion API 설정
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero, // remove horizontal padding
-                  foregroundColor: Colors.transparent, // ripple color
-                ),
-                onPressed: () => showConfigBottomSheet(context, const NotionConfigModal()),
-                child: const TodoText(
-                  'Notion API 설정',
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              ),
-            ]),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildTitleInput(titleController),
+                const SizedBox(height: 24),
+                _buildSettingButton(context),
+              ],
+            ),
           ),
         ]),
+      ),
+    );
+  }
+
+  //Title input
+  Widget _buildTitleInput(TextEditingController titleController) {
+    return TitleTextField(
+      controller: titleController,
+      hintText: kDefaultTitle,
+      onChange: (title) => debounceQuery(title, (query) {
+        ref.read(profileControllerProvider.notifier).editTitle(query);
+      }),
+    );
+  }
+
+  //Setting button
+  TextButton _buildSettingButton(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero, // remove horizontal padding
+        foregroundColor: Colors.transparent, // ripple color
+      ),
+      onPressed: () =>
+          showConfigBottomSheet(context, const NotionConfigModal()),
+      child: const TodoText(
+        'Notion API 설정',
+        style: TextStyle(decoration: TextDecoration.underline),
       ),
     );
   }

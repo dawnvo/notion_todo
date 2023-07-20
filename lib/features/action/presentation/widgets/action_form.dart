@@ -4,17 +4,15 @@ import 'package:notion_todo/constants/sizes.dart';
 import 'package:notion_todo/components/icon.dart';
 
 class ActionForm extends StatefulWidget {
-  final TextEditingController controller;
-
-  final VoidCallback onAddTask;
-
-  final VoidCallback onAddRoutine;
-
   const ActionForm({
     required this.controller,
     required this.onAddTask,
     required this.onAddRoutine,
   });
+
+  final TextEditingController controller;
+  final VoidCallback onAddTask;
+  final VoidCallback onAddRoutine;
 
   @override
   State<ActionForm> createState() => _ActionFormState();

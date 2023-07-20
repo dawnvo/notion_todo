@@ -4,14 +4,13 @@ import 'package:notion_todo/constants/colors.dart';
 import 'package:notion_todo/constants/sizes.dart';
 
 class SubmitButton extends HookConsumerWidget {
-  final String title;
-
-  final VoidCallback? onPressed;
-
   const SubmitButton({
     required this.title,
     required this.onPressed,
   });
+
+  final String title;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

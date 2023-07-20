@@ -8,14 +8,13 @@ import 'package:notion_todo/constants/widget.dart';
 import 'package:notion_todo/components/icon.dart';
 
 class BackgroundPicker extends HookWidget {
-  final String? image;
-
-  final void Function(File?)? onChanged;
-
   const BackgroundPicker({
     this.image,
     this.onChanged,
   });
+
+  final String? image;
+  final void Function(File?)? onChanged;
 
   Future<File?> pickBackgroundImage() async {
     final ImagePicker picker = ImagePicker();
