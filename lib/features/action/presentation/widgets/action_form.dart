@@ -129,7 +129,7 @@ class _ActionFormState extends State<ActionForm> {
             elevation: 0,
             backgroundColor: CommonColors.brand,
             child: const TodoIcon(
-              FlutterRemix.add_line,
+              Remix.add_line,
               size: IconSizes.large,
               color: Colors.white,
             ),

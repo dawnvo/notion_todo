@@ -61,7 +61,7 @@ class BackgroundPicker extends HookWidget {
               shape: BoxShape.circle,
             ),
             child: const TodoIcon(
-              FlutterRemix.camera_fill,
+              Remix.camera_fill,
               size: IconSizes.large,
               color: Colors.black,
             ),

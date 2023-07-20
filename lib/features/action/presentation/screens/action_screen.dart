@@ -68,11 +68,11 @@ class ActionScreen extends HookConsumerWidget {
               background: profile.image,
               actions: [
                 IconButton(
-                  icon: const Icon(FlutterRemix.refresh_line),
+                  icon: const Icon(Remix.refresh_line),
                   onPressed: () => _synchronizeNotion(context, ref, actions),
                 ),
                 IconButton(
-                  icon: const Icon(FlutterRemix.settings_3_fill),
+                  icon: const Icon(Remix.settings_3_fill),
                   onPressed: () => Navigator.pushNamed(context, '/profile'),
                 ),
               ],

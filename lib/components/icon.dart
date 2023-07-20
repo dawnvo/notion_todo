@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:notion_todo/constants/sizes.dart';
 import 'package:notion_todo/constants/colors.dart';
 
-export 'package:flutter_remix/flutter_remix.dart';
+export 'package:remixicon/remixicon.dart';
 
 class TodoIcon extends StatelessWidget {
   const TodoIcon(

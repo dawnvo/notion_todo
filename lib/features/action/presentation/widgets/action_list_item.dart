@@ -19,8 +19,8 @@ class ActionListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icon = done //
-        ? FlutterRemix.checkbox_fill
-        : FlutterRemix.checkbox_blank_line;
+        ? Remix.checkbox_fill
+        : Remix.checkbox_blank_line;
     final color = done //
         ? FontColors.hint
         : FontColors.primary;
