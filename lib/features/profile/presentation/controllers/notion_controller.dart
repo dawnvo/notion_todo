@@ -12,7 +12,6 @@ typedef NotionState = void;
 
 class NotionController extends StateNotifier<NotionState> {
   final NotionKey key;
-
   final ProfileUsecase profileUsecase;
 
   NotionController(
@@ -26,7 +25,10 @@ class NotionController extends StateNotifier<NotionState> {
       throw Exception('입력해주세요.');
     }
 
-    state = profileUsecase.configNotionKey(NotionKey(token: token, databaseId: databaseId));
+    state = profileUsecase.configNotionKey(NotionKey(
+      token: token,
+      databaseId: databaseId,
+    ));
   }
 
   /// 노션에 페이지 만들기
@@ -62,7 +64,8 @@ class NotionController extends StateNotifier<NotionState> {
       .toList();
 }
 
-final notionControllerProvider = StateNotifierProvider<NotionController, NotionState>((ref) {
+final notionControllerProvider =
+    StateNotifierProvider<NotionController, NotionState>((ref) {
   final profileRepository = ref.watch(profileRepositoryProvider);
   final profileService = ref.watch(profileServiceProvider);
 

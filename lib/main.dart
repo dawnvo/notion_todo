@@ -27,6 +27,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Notion Todo',
       color: CommonColors.brand,
+
+      //theme
       theme: ThemeData(
         fontFamily: 'Pretendard',
         brightness: Brightness.dark,
@@ -40,7 +42,7 @@ class App extends StatelessWidget {
         scaffoldBackgroundColor: CommonColors.background,
       ),
 
-      // Flutter navigation 1.0
+      //navigation
       initialRoute: '/',
       routes: {
         '/': (context) => const ActionScreen(),

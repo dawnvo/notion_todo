@@ -29,6 +29,7 @@ class ProfileController extends StateNotifier<ProfileState> {
   }
 }
 
-final profileControllerProvider = StateNotifierProvider<ProfileController, ProfileState>((ref) {
+final profileControllerProvider =
+    StateNotifierProvider<ProfileController, ProfileState>((ref) {
   return ProfileController(ref.watch(profileServiceProvider));
 });
