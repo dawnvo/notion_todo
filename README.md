@@ -1,4 +1,4 @@
-![cover](./assets/images/cover.png)
+![cover](./assets/guide/cover.png)
 
 # Notion Todo
 

@@ -6,7 +6,8 @@ import 'package:notion_todo/constants/colors.dart';
 import 'package:notion_todo/features/action/presentation/screens/action_screen.dart';
 import 'package:notion_todo/features/profile/presentation/screens/profile_screen.dart';
 
-final sharedPreferencesProvider = Provider<SharedPreferences>((_) => throw UnimplementedError());
+final sharedPreferencesProvider =
+    Provider<SharedPreferences>((_) => throw UnimplementedError());
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,9 @@ class App extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.white,
+        ),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Colors.white,
         ),
         scaffoldBackgroundColor: CommonColors.background,
       ),
