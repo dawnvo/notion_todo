@@ -33,13 +33,9 @@ class ProfileScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final profile = ref.watch(profileControllerProvider);
-    final titleController = useTextEditingController();
-
-    // * 저장된 제목이 존재하면 불러와요.
-    useEffect(() {
-      titleController.text = profile.title ?? '';
-      return null;
-    }, []);
+    final titleController = useTextEditingController(
+      text: profile.title,
+    );
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

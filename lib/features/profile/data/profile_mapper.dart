@@ -4,8 +4,8 @@ import 'package:notion_todo/features/profile/domain/profile_entity.dart';
 class ProfileMapper {
   static String toJson(Profile domain) {
     return json.encode({
-      "token": domain.key.token,
-      "database_id": domain.key.databaseId,
+      "token": domain.notionKey.token,
+      "database_id": domain.notionKey.databaseId,
       "image": domain.image,
       "title": domain.title,
     });
@@ -14,7 +14,7 @@ class ProfileMapper {
   static Profile toDomain(String str) {
     final dynamic data = json.decode(str);
     return Profile(
-      key: NotionKey(
+      notionKey: NotionKey(
         token: data["token"],
         databaseId: data["database_id"],
       ),

@@ -71,5 +71,5 @@ final notionControllerProvider =
 
   final profile = profileRepository.load();
 
-  return NotionController(profile.key, profileService);
+  return NotionController(profile.notionKey, profileService);
 });

@@ -8,15 +8,19 @@ import 'package:notion_todo/components/modal_sheet.dart';
 
 import 'package:notion_todo/features/profile/presentation/widgets/submit_button.dart';
 import 'package:notion_todo/features/profile/presentation/controllers/notion_controller.dart';
+import 'package:notion_todo/features/profile/presentation/controllers/profile_controller.dart';
 
 class NotionConfigModal extends HookConsumerWidget {
   const NotionConfigModal();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = GlobalKey<FormState>();
+    final formKey = useMemoized(() => GlobalKey<FormState>());
+    final profile = ref.watch(profileControllerProvider);
+    final databaseIdController = useTextEditingController(
+      text: profile.notionKey.databaseId,
+    );
     final tokenController = useTextEditingController();
-    final databaseIdController = useTextEditingController();
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -48,15 +52,15 @@ class NotionConfigModal extends HookConsumerWidget {
           key: formKey,
           child: Column(children: [
             TodoTextField(
-              controller: tokenController,
-              labelText: '토큰',
-              validator: validateToken,
-            ),
-            const SizedBox(height: 16),
-            TodoTextField(
               controller: databaseIdController,
               labelText: 'DB 아이디',
               validator: validateDatabaseId,
+            ),
+            const SizedBox(height: 16),
+            TodoTextField(
+              controller: tokenController,
+              labelText: '시크릿 토큰',
+              validator: validateToken,
             ),
           ]),
         ),

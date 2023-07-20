@@ -2,13 +2,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:notion_todo/features/action/domain/action_entity.dart';
 import 'package:notion_todo/features/action/data/action_repository.dart';
 
-// 🟡 Riverpod Dependency
-final actionServiceProvider = Provider<ActionUsecase>((ref) {
-  final repository = ref.watch(actionRepositoryProvider);
-  return ActionService(repository);
-});
-
-/// Interface
 abstract class ActionUsecase {
   // 할 일 가져오기
   List<Action> getActions();
@@ -26,7 +19,6 @@ abstract class ActionUsecase {
   void initializeActions();
 }
 
-// Implementation
 class ActionService implements ActionUsecase {
   final ActionRepositoryPort _repository;
 
@@ -79,3 +71,8 @@ class ActionService implements ActionUsecase {
     _repository.save(initialize);
   }
 }
+
+final actionServiceProvider = Provider<ActionUsecase>((ref) {
+  final repository = ref.watch(actionRepositoryProvider);
+  return ActionService(repository);
+});

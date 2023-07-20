@@ -99,7 +99,7 @@ class _ActionFormState extends State<ActionForm> {
       decoration: InputDecoration(
         // hint text
         hintText: '할 일 추가',
-        hintStyle: const TextStyle(color: Colors.white24),
+        hintStyle: const TextStyle(color: FontColors.secondary),
         // constants
         isDense: true,
         filled: true,

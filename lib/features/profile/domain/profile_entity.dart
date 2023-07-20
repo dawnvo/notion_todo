@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 /// Entity
 class Profile extends Equatable {
-  final NotionKey key;
+  final NotionKey notionKey;
 
   final String? image;
 
@@ -11,23 +11,23 @@ class Profile extends Equatable {
   const Profile({
     this.image,
     this.title,
-    final NotionKey? key,
-  }) : key = key ?? const NotionKey();
+    final NotionKey? notionKey,
+  }) : notionKey = notionKey ?? const NotionKey();
 
   @override
   List<Object?> get props => [
-        key,
+        notionKey,
         image,
         title,
       ];
 
   Profile copyWith({
-    final NotionKey? key,
+    final NotionKey? notionKey,
     final String? image,
     final String? title,
   }) {
     return Profile(
-      key: key ?? this.key,
+      notionKey: notionKey ?? this.notionKey,
       image: image ?? this.image,
       title: title ?? this.title,
     );

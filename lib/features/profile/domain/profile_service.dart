@@ -2,13 +2,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:notion_todo/features/profile/domain/profile_entity.dart';
 import 'package:notion_todo/features/profile/data/profile_repository.dart';
 
-// 🟡 Riverpod Dependency
-final profileServiceProvider = Provider<ProfileUsecase>((ref) {
-  final repository = ref.watch(profileRepositoryProvider);
-  return ProfileService(repository);
-});
-
-/// Interface
 abstract class ProfileUsecase {
   // 프로필 설정 가져오기
   Profile getProfile();
@@ -23,7 +16,6 @@ abstract class ProfileUsecase {
   void configNotionKey(NotionKey key);
 }
 
-// Implementation
 class ProfileService implements ProfileUsecase {
   final ProfileRepositoryPort _repository;
 
@@ -51,10 +43,15 @@ class ProfileService implements ProfileUsecase {
   }
 
   @override
-  void configNotionKey(NotionKey key) {
+  void configNotionKey(NotionKey notionKey) {
     final profile = getProfile();
-    final updated = profile.copyWith(key: key);
+    final updated = profile.copyWith(notionKey: notionKey);
 
     _repository.save(updated);
   }
 }
+
+final profileServiceProvider = Provider<ProfileUsecase>((ref) {
+  final repository = ref.watch(profileRepositoryProvider);
+  return ProfileService(repository);
+});
