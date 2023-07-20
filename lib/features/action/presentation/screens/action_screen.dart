@@ -27,7 +27,9 @@ class ActionScreen extends HookConsumerWidget {
   ) async {
     try {
       // 노션에 페이지 생성 후, 할 일 기록
-      await ref.read(notionControllerProvider.notifier).createNotionPage(actions);
+      await ref
+          .read(notionControllerProvider.notifier)
+          .createNotionPage(actions);
 
       // 할 일 초기화
       await ref.read(actionControllerProvider.notifier).initializeActions();
@@ -80,10 +82,12 @@ class ActionScreen extends HookConsumerWidget {
               sliver: SliverToBoxAdapter(
                 child: ActionList(
                   actions: actions,
-                  onCompleted: (action) =>
-                      ref.read(actionControllerProvider.notifier).doneAction(action),
-                  onRemoved: (action) =>
-                      ref.read(actionControllerProvider.notifier).removeAction(action),
+                  onCompleted: (action) => ref
+                      .read(actionControllerProvider.notifier)
+                      .doneAction(action),
+                  onRemoved: (action) => ref
+                      .read(actionControllerProvider.notifier)
+                      .removeAction(action),
                 ),
               ),
             )
@@ -94,11 +98,15 @@ class ActionScreen extends HookConsumerWidget {
             alignment: Alignment.bottomCenter,
             child: ActionForm(
               controller: actionNameController,
-              onAddTask: () => ref.read(actionControllerProvider.notifier).addAction(Action(
+              onAddTask: () => ref
+                  .read(actionControllerProvider.notifier) //
+                  .addAction(Action(
                     type: ActionType.task,
                     name: actionNameController.text,
                   )),
-              onAddRoutine: () => ref.read(actionControllerProvider.notifier).addAction(Action(
+              onAddRoutine: () => ref
+                  .read(actionControllerProvider.notifier) //
+                  .addAction(Action(
                     type: ActionType.routine,
                     name: actionNameController.text,
                   )),

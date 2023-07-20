@@ -50,7 +50,8 @@ class NotionClient {
   }
 
   /// 페이지 생성
-  Future<NotionHttpResponse> createPage(NotionProperty property, NotionChildren children) async {
+  Future<NotionHttpResponse> createPage(
+      NotionProperty property, NotionChildren children) async {
     final response = await http.post(
       Uri.https(host, '/$v/pages'),
       headers: {

@@ -1,7 +1,10 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 
-void showFlashSnackBar(BuildContext context, {required String message}) {
+void showFlashSnackBar(
+  BuildContext context, {
+  required String message,
+}) {
   showFlash(
     context: context,
     duration: const Duration(seconds: 3),

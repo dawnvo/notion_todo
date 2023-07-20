@@ -48,5 +48,6 @@ class NotionChildren {
     return this;
   }
 
-  List<Map<String, dynamic>> toJson() => _blocks.map((block) => block.toJson()).toList();
+  List<Map<String, dynamic>> toJson() =>
+      _blocks.map((block) => block.toJson()).toList();
 }

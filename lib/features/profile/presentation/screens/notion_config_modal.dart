@@ -28,9 +28,10 @@ class NotionConfigModal extends HookConsumerWidget {
             // 검증에 성공하면 실행
             if (formKey.currentState!.validate()) {
               // [1] 노션 설정
-              ref
-                  .read(notionControllerProvider.notifier)
-                  .configNotion(tokenController.text, databaseIdController.text);
+              ref.read(notionControllerProvider.notifier).configNotion(
+                    tokenController.text,
+                    databaseIdController.text,
+                  );
 
               // [2] 하단 시트 닫음
               Navigator.pop(context);
